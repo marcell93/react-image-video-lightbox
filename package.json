@@ -1,6 +1,6 @@
 {
   "name": "react-image-video-viewer",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "A React lightbox that supports videos, images and pinch zooming on images. Optimized for mobile UI with swiping, but can be used on desktop as well.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -32,7 +32,7 @@
     "umd"
   ],
   "peerDependencies": {
-    "react": ">= 16.x < 18"
+    "react": ">= 16.x"
   },
   "devDependencies": {
     "nwb": "0.25.x",
