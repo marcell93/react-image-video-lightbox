@@ -207,6 +207,7 @@ class ReactImageVideoLightbox extends React.Component {
       var resource = data[i];
       if (resource.type === 'photo') {
         items.push(<img key={i}
+          className="img-viewer"
           alt={resource.altTag}
           src={resource.url}
           style={{
@@ -220,22 +221,35 @@ class ReactImageVideoLightbox extends React.Component {
       }
 
       if (resource.type === 'video') {
-        items.push(<iframe key={i}
-          width="560"
-          height="315"
-          src={resource.url}
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-          title={resource.title}
-          allowFullScreen
-          style={{
-            pointerEvents: this.state.scale === 1 ? 'auto' : 'none',
-            maxWidth: '100%',
-            maxHeight: '100%',
-            transform: `translate(${this.state.x}px, ${this.state.y}px)`,
-            transition: 'transform 0.5s ease-out'
-          }}
-          onLoad={() => { this.setState({ loading: false }); }}></iframe>);
+        if (resource.url && (resource.url.includes('.mp4') || resource.url.includes('.mov'))) {
+          items.push(
+            <video key={i} className="video-viewer" preload="metadata" poster={resource.preview ? resource.preview : null}
+              playsinline controls src={resource.url} >
+              <source src="mediaItem.video + '#t=0.1'" type="video/webm" />
+              <source src="mediaItem.video + '#t=0.1'" type="video/ogg" />
+              <source src="mediaItem.video + '#t=0.1'" type="video/mp4" />
+              <source src="mediaItem.video + '#t=0.1'" type="video/3gp" />
+            </video>
+          );
+        } else {
+          items.push(<iframe key={i}
+            width="560"
+            height="315"
+            src={resource.url}
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            title={resource.title}
+            allowFullScreen
+            style={{
+              pointerEvents: this.state.scale === 1 ? 'auto' : 'none',
+              maxWidth: '100%',
+              maxHeight: '100%',
+              transform: `translate(${this.state.x}px, ${this.state.y}px)`,
+              transition: 'transform 0.5s ease-out'
+            }}
+            onLoad={() => { this.setState({ loading: false }); }}></iframe>);
+        }
+
       }
     }
 
