@@ -1,6 +1,6 @@
 {
   "name": "react-image-video-viewer",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A React lightbox that supports videos, images and pinch zooming on images. Optimized for mobile UI with swiping, but can be used on desktop as well.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -21,10 +21,10 @@
     "video",
     "image"
   ],
-  "author": "Ngineer101 <nicolaasb@pm.me>",
+  "author": "Marcell Calero, Ngineer101 <nicolaasb@pm.me>",
   "license": "MIT",
-  "repository": "https://github.com/Ngineer101/react-image-video-lightbox",
-  "bugs": "https://github.com/Ngineer101/react-image-video-lightbox/issues",
+  "repository": "https://github.com/marcell93/react-image-video-lightbox",
+  "bugs": "https://github.com/marcell93/react-image-video-lightbox/issues",
   "files": [
     "css",
     "es",

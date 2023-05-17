@@ -1,17 +1,17 @@
-# React image & video lightbox
+# React image & video viewer
 
 ## [View demo](https://ngineer101.github.io/react-image-video-lightbox)
 
 ## Installation
 
 ```npm
-npm install react-image-video-lightbox
+npm install react-image-video-viewer
 ```
 
 ## Usage
 
 ```javascript
-<ReactImageVideoLightbox
+<ReactImageVideoviewer
   data={[
     {
       url: "https://placekitten.com/450/300",
@@ -24,9 +24,9 @@ npm install react-image-video-lightbox
       title: "some video",
     },
     {
-      url: "https://placekitten.com/550/500",
-      type: "photo",
-      altTag: "some other image",
+      url: "https://file-examples.com/storage/fea9880a616463cab9f1575/2017/04/file_example_MP4_480_1_5MG.mp4",
+      type: "video",
+      poster: "posterImg.jpg",
     },
     {
       url: "https://www.youtube.com/embed/ScMzIvxBSi4",
@@ -48,9 +48,9 @@ npm install react-image-video-lightbox
 | Property             | Type                           | Description                                              |
 | -------------------- | ------------------------------ | -------------------------------------------------------- |
 | data                 | Array of resources             | An array of resource objects (see resource object below) |
-| startIndex           | number                         | Index of image/video where the lightbox should open      |
+| startIndex           | number                         | Index of image/video where the viewer should open      |
 | showResourceCount    | boolean                        | Show resource count in the upper left corner             |
-| onCloseCallback      | Function => void               | Callback function called when the lightbox is closed     |
+| onCloseCallback      | Function => void               | Callback function called when the viewer is closed     |
 | onNavigationCallback | Function(currentIndex) => void | Callback function called on navigation between resources |
 
 ## Resource Object
@@ -58,10 +58,10 @@ npm install react-image-video-lightbox
 | Property | Type   | Description                                                                                |
 | -------- | ------ | ------------------------------------------------------------------------------------------ |
 | url      | string | Url of the image/video                                                                     |
-| type     | string | Two types are supported - 'photo' & 'video' (only YouTube videos are supported)            |
+| type     | string | Two types are supported - 'photo' & 'video' (only .mp4, .mov and YouTube videos are supported)            |
 | altTag   | string | Alt tag for image                                                                          |
 | title    | string | Title for iframe when rendering YouTube video                                              |
 
 ## Have a feature request or suggestion?
 
-Create an issue on Github: [https://github.com/Ngineer101/react-image-video-lightbox/issues](https://github.com/Ngineer101/react-image-video-lightbox/issues)
+Create an issue on Github: [https://github.com/marcell93/react-image-video-viewer/issues](https://github.com/marcell93/react-image-video-viewer/issues)
