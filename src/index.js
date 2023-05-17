@@ -223,7 +223,7 @@ class ReactImageVideoLightbox extends React.Component {
       if (resource.type === 'video') {
         if (resource.url && (resource.url.includes('.mp4') || resource.url.includes('.mov'))) {
           items.push(
-            <video onLoad={() => { this.setState({ loading: false }); }} key={i} className="video-viewer" preload="metadata" poster={resource.poster ? resource.poster : null}
+            <video onLoadedData={() => { this.setState({ loading: false }); }} key={i} className="video-viewer" preload="metadata" poster={resource.poster ? resource.poster : null}
               playsInline controls src={resource.url} >
               <source src={resource.url + "#t=0.1"} type="video/webm" />
               <source src={resource.url + "#t=0.1"} type="video/ogg" />
