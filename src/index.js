@@ -6,8 +6,8 @@ const MAX_SCALE = 4;
 const SETTLE_RANGE = 0.001;
 const ADDITIONAL_LIMIT = 0.2;
 const DOUBLE_TAP_THRESHOLD = 300;
-const ANIMATION_SPEED = 0.04;
-const RESET_ANIMATION_SPEED = 0.08;
+const ANIMATION_SPEED = 0.01;
+const RESET_ANIMATION_SPEED = 0.01;
 const INITIAL_X = 0;
 const INITIAL_Y = 0;
 const INITIAL_SCALE = 1;
@@ -133,7 +133,7 @@ class ReactImageVideoLightbox extends React.Component {
           x: INITIAL_X,
           loading: true
         }, () => this.onNavigationCallback(currentIndex - 1));
-      }, 500);
+      }, 0);
     } else {
       this.reset();
     }
@@ -149,7 +149,7 @@ class ReactImageVideoLightbox extends React.Component {
           x: INITIAL_X,
           loading: true
         }, () => this.onNavigationCallback(currentIndex + 1));
-      }, 500);
+      }, 0);
     } else {
       this.reset();
     }
