@@ -285,13 +285,13 @@ class ReactImageVideoLightbox extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', onResize);
-    document.addEventListener("keydown", handleKeyDown);
+    window.addEventListener('resize', this.onResize);
+    document.addEventListener("keydown", this.handleKeyDown);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', onResize);
-    document.removeEventListener("keydown", handleKeyDown);
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener("keydown", this.handleKeyDown);
   }
 
   render() {
