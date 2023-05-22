@@ -61,4 +61,5 @@ npm install react-image-video-viewer
 | type     | string | Two types are supported - 'photo' & 'video' (only .mp4, .mov and YouTube videos are supported)            |
 | altTag   | string | Alt tag for image                                                                          |
 | title    | string | Title for iframe when rendering YouTube, .mp4 or .mov video                                              |
-
+| poster    | string | Poster image for .mp4 or .mov video                                              |
+| autoPlay    | boolean | Autoplay video for .mp4 or .mov video                                              |
