@@ -13,6 +13,9 @@ const INITIAL_Y = 0;
 const INITIAL_SCALE = 1;
 const MOBILE_ICON_SIZE = 35;
 const DESKTOP_ICON_SIZE = 50;
+const ESCAPE_KEY = 27;
+const RIGHT_KEY = 39;
+const LEFT_KEY = 37;
 
 class ReactImageVideoLightbox extends React.Component {
 
@@ -223,9 +226,8 @@ class ReactImageVideoLightbox extends React.Component {
       if (resource.type === 'video') {
         if (resource.url && (resource.url.includes('.mp4') || resource.url.includes('.mov'))) {
           items.push(
-            <video onLoadStart={() => { this.setState({ loading: false }); }} 
-            onLoadEnd={() => { this.setState({ loading: false }); }} 
-            onLoadedData={() => { this.setState({ loading: false }); }} key={i} className="video-viewer" preload="metadata" poster={resource.poster ? resource.poster : null}
+            <video onLoadStart={() => { this.setState({ loading: false }); }}
+              onLoadedData={() => { this.setState({ loading: false }); }} key={i} className="video-viewer" preload="metadata" poster={resource.poster ? resource.poster : null}
               playsInline controls autoPlay={resource.autoPlay ? true : false} src={resource.url} >
               <source src={resource.url + "#t=0.1"} type="video/webm" />
               <source src={resource.url + "#t=0.1"} type="video/ogg" />
@@ -258,24 +260,38 @@ class ReactImageVideoLightbox extends React.Component {
     return items;
   }
 
-  UNSAFE_componentWillMount() {
-    window.addEventListener('resize', () => {
-      if (window.innerWidth <= 500) {
-        this.setState({ iconSize: MOBILE_ICON_SIZE });
-      } else {
-        this.setState({ iconSize: DESKTOP_ICON_SIZE });
-      }
-    });
+  handleKeyDown(event) {
+    switch (event.keyCode) {
+      case ESCAPE_KEY:
+        this.handleTouchEnd();
+        break;
+      case RIGHT_KEY:
+        this.swipeRight();
+        break;
+      case LEFT_KEY:
+        this.swipeLeft();
+        break;
+      default:
+        break;
+    }
+  }
+
+  onResize() {
+    if (window.innerWidth <= 500) {
+      this.setState({ iconSize: MOBILE_ICON_SIZE });
+    } else {
+      this.setState({ iconSize: DESKTOP_ICON_SIZE });
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', onResize);
+    document.addEventListener("keydown", handleKeyDown);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', () => {
-      if (window.innerWidth <= 500) {
-        this.setState({ iconSize: MOBILE_ICON_SIZE });
-      } else {
-        this.setState({ iconSize: DESKTOP_ICON_SIZE });
-      }
-    });
+    window.removeEventListener('resize', onResize);
+    document.removeEventListener("keydown", handleKeyDown);
   }
 
   render() {
