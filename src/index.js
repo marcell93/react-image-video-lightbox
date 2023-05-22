@@ -96,12 +96,12 @@ class ReactImageVideoLightbox extends React.Component {
   }
 
   handleTouchEnd(event) {
-    if (event.touches.length > 0) return null;
+    if (event && event.touches && event.touches.length > 0) return null;
 
     if (this.state.scale > MAX_SCALE) return this.zoomTo(MAX_SCALE);
     if (this.state.scale < MIN_SCALE) return this.zoomTo(MIN_SCALE);
 
-    if (this.lastTouchEnd && this.lastTouchEnd + DOUBLE_TAP_THRESHOLD > event.timeStamp) {
+    if (event && this.lastTouchEnd && this.lastTouchEnd + DOUBLE_TAP_THRESHOLD > event.timeStamp) {
       this.reset();
     }
 
@@ -109,11 +109,11 @@ class ReactImageVideoLightbox extends React.Component {
       this.handleSwipe(event);
     }
 
-    this.lastTouchEnd = event.timeStamp;
+    this.lastTouchEnd = event ? event.timeStamp : undefined;
   }
 
   handleSwipe(event) {
-    var swipeDelta = event.changedTouches[0].clientX - this.swipeStartX;
+    var swipeDelta = event ? event.changedTouches[0].clientX - this.swipeStartX : 0;
     if (swipeDelta < -(this.width / 3)) {
       this.swipeRight();
     } else if (swipeDelta > (this.width / 3)) {
@@ -266,7 +266,7 @@ class ReactImageVideoLightbox extends React.Component {
   handleKeyDown(event) {
     switch (event.keyCode) {
       case ESCAPE_KEY:
-        this.handleTouchEnd();
+        this.props.onCloseCallback();
         break;
       case RIGHT_KEY:
         this.swipeRight();
