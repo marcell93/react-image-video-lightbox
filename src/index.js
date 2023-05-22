@@ -266,7 +266,7 @@ class ReactImageVideoLightbox extends React.Component {
   handleKeyDown(event) {
     switch (event.keyCode) {
       case ESCAPE_KEY:
-        document.body.style.overflow = this.state.overflow ? this.state.overflow : undefined;
+        document.body.style.overflow = this.state.overflow ? this.state.overflow : null;
         this.props.onCloseCallback();
         break;
       case RIGHT_KEY:
@@ -298,7 +298,7 @@ class ReactImageVideoLightbox extends React.Component {
   }
 
   componentWillUnmount() {
-    document.body.style.overflow = this.state.overflow ? this.state.overflow : undefined;
+    document.body.style.overflow = this.state.overflow ? this.state.overflow : null;
     window.removeEventListener('resize', this.onResize);
     document.removeEventListener("keydown", this.handleKeyDown);
   }
@@ -351,7 +351,7 @@ class ReactImageVideoLightbox extends React.Component {
             fontSize: `${this.state.iconSize * 0.8}px`
           }}
           onClick={() => {
-            document.body.style.overflow = this.state.overflow ? this.state.overflow : undefined;
+            document.body.style.overflow = this.state.overflow ? this.state.overflow : null;
             this.props.onCloseCallback();
             }}>
           <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 0 24 24" width="36px" fill="#FFFFFF">
