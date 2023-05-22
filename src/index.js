@@ -321,7 +321,8 @@ class ReactImageVideoLightbox extends React.Component {
           flexDirection: 'row',
           height: '100%',
           width: '100%',
-          backgroundColor: 'rgba(0,0,0,1)',
+          background: 'rgba(0, 0, 0, 0.5019607843)',
+          backdropFilter: 'blur(2.1428571429em)',
           zIndex: 100
         }}>
 
