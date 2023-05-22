@@ -30,7 +30,8 @@ class ReactImageVideoLightbox extends React.Component {
       index: this.props.startIndex,
       swiping: false,
       loading: true,
-      iconSize: window.innerWidth <= 500 ? MOBILE_ICON_SIZE : DESKTOP_ICON_SIZE
+      iconSize: window.innerWidth <= 500 ? MOBILE_ICON_SIZE : DESKTOP_ICON_SIZE,
+      overflow: undefined
     };
 
     this.width = window.innerWidth;
@@ -38,6 +39,8 @@ class ReactImageVideoLightbox extends React.Component {
     this.handleTouchStart = this.handleTouchStart.bind(this);
     this.handleTouchMove = this.handleTouchMove.bind(this);
     this.handleTouchEnd = this.handleTouchEnd.bind(this);
+    this.onResize = this.onResize.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.onNavigationCallback = this.props.onNavigationCallback && typeof this.props.onNavigationCallback === 'function'
       ? this.props.onNavigationCallback
       : () => { };
@@ -285,11 +288,16 @@ class ReactImageVideoLightbox extends React.Component {
   }
 
   componentDidMount() {
+    this.setState({
+      overflow: document.body.style.overflow
+    });
+    document.body.style.overflow = 'hidden';
     window.addEventListener('resize', this.onResize);
     document.addEventListener("keydown", this.handleKeyDown);
   }
 
   componentWillUnmount() {
+    document.body.style.overflow = this.state.overflow ? this.state.overflow : undefined;
     window.removeEventListener('resize', this.onResize);
     document.removeEventListener("keydown", this.handleKeyDown);
   }
