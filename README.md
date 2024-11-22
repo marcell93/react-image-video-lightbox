@@ -1,6 +1,10 @@
 # React image & video viewer
 
-## [View demo](https://ngineer101.github.io/react-image-video-lightbox)
+React Image Video Lightbox is a lightweight and customizable React component that provides a modern and responsive lightbox for displaying images and youtube or mp4 videos. It supports easy navigation, full-screen previews, and offers a seamless user experience for showcasing media content. This library is ideal for galleries, portfolios, and any project requiring media presentation with minimal effort. Compatible with modern React versions and fully responsive across devices.
+
+## [View demo](https://marcell93.github.io/react-image-video-lightbox)
+
+## [Marcell Calero - Linkedin](https://www.linkedin.com/in/marcell-calero)
 
 ## Installation
 
@@ -14,22 +18,17 @@ npm install react-image-video-viewer
 <ReactImageVideoviewer
   data={[
     {
-      url: "https://placekitten.com/450/300",
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/800px-Flag_of_Uruguay.svg.png",
       type: "photo",
       altTag: "some image",
     },
     {
-      url: "https://www.youtube.com/embed/ScMzIvxBSi4",
+      url: "https://www.sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4",
       type: "video",
-      title: "some video",
+      title: "Placeholder video",
     },
     {
-      url: "https://file-examples.com/storage/fea9880a616463cab9f1575/2017/04/file_example_MP4_480_1_5MG.mp4",
-      type: "video",
-      poster: "posterImg.jpg",
-    },
-    {
-      url: "https://www.youtube.com/embed/ScMzIvxBSi4",
+      url: "https://www.youtube.com/embed/iTjxqWolgHY",
       type: "video",
       title: "some other video",
     },

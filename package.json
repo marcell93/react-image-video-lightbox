@@ -1,14 +1,17 @@
 {
   "name": "react-image-video-viewer",
-  "version": "3.0.15",
+  "version": "4.0.1",
   "description": "A React lightbox that supports videos, images and pinch zooming on images. Optimized for mobile UI with swiping, but can be used on desktop as well.",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "homepage": "https://marcell93.github.io/react-image-video-lightbox",
   "scripts": {
     "build": "nwb build-react-component",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
-    "start": "nwb serve-react-demo"
+    "start": "nwb serve-react-demo",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d demo/dist"
   },
   "keywords": [
     "lightbox",
@@ -19,9 +22,10 @@
     "mobile",
     "desktop",
     "video",
-    "image"
+    "image",
+    "mp4"
   ],
-  "author": "Marcell Calero, Ngineer101 <nicolaasb@pm.me>",
+  "author": "Marcell Calero <https://www.linkedin.com/in/marcell-calero>, Ngineer101 <nicolaasb@pm.me>",
   "license": "MIT",
   "repository": "https://github.com/marcell93/react-image-video-lightbox",
   "bugs": "https://github.com/marcell93/react-image-video-lightbox/issues",
@@ -32,11 +36,12 @@
     "umd"
   ],
   "peerDependencies": {
-    "react": ">= 16.x"
+    "react": ">= 18.x"
   },
   "devDependencies": {
-    "nwb": "0.25.x",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "gh-pages": "^6.2.0",
+    "nwb": "0.25.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

@@ -42,22 +42,17 @@ export default class Demo extends Component {
           <ReactImageVideoLightbox
             data={[
               {
-                url: "https://placekitten.com/450/300",
+                url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/800px-Flag_of_Uruguay.svg.png",
                 type: "photo",
                 altTag: "some image",
               },
               {
-                url: "https://www.youtube.com/embed/ScMzIvxBSi4",
+                url: "https://www.sample-videos.com/video321/mp4/240/big_buck_bunny_240p_1mb.mp4",
                 type: "video",
                 title: "Placeholder video",
               },
               {
-                url: "https://placekitten.com/550/500",
-                type: "photo",
-                altTag: "some other image",
-              },
-              {
-                url: "https://www.youtube.com/embed/ScMzIvxBSi4",
+                url: "https://www.youtube.com/embed/iTjxqWolgHY",
                 type: "video",
                 title: "some other video",
               },
